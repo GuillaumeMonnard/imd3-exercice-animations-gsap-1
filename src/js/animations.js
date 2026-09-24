@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 const animations = () => {
   if (document.querySelector("#exercice-animations")) {
     /* ----------------------------------------------
@@ -12,6 +14,10 @@ const animations = () => {
     Déplacer l'item 1 de 100px vers la gauche
     durant 3 secondes
    ----------------------- */
+    gsap.to("#js-exercise-1", {
+      x: -100,
+      duration: 3,
+    });
     /* -----------------------
     Exercice 2
    -----------------------
@@ -19,6 +25,10 @@ const animations = () => {
     durant 2 secondes
     après un délai de 2 secondes
    ----------------------- */
+    gsap.to("#js-exercise-2", {
+      rotation: 45,
+      duration: 2,
+    });
     /* -----------------------
     Exercice 3
    -----------------------
@@ -27,6 +37,15 @@ const animations = () => {
     durant 2 secondes
     après un délai de 1 secondes
    ----------------------- */
+    gsap.to(
+      "#js-exercise-3",
+      {
+        scale: 0.75,
+        opacity: 0.5,
+        duration: 2,
+      },
+      1,
+    );
     /* -----------------------
     Exercice 4
    -----------------------
@@ -35,6 +54,15 @@ const animations = () => {
     durant 2 secondes
     après un délai de 1 secondes
    ----------------------- */
+    gsap.from(
+      "#js-exercise-4",
+      {
+        scale: 0.75,
+        opacity: 0.5,
+        duration: 2,
+      },
+      1,
+    );
     /* -----------------------
     Exercice 5 (timeline)
    -----------------------
@@ -45,6 +73,27 @@ const animations = () => {
     PUIS déplacer l'item 5 de 100px vers le haut
     durant 2 secondes après un délai de 1 seconde
    ----------------------- */
+    const myTimeline = gsap.timeline();
+    myTimeline.to("#js-exercise-5", {
+      x: -100,
+      duration: 3,
+    });
+    myTimeline.to(
+      "#js-exercise-5",
+      {
+        rotation: 45,
+        duration: 2,
+      },
+      "+=1",
+    );
+    myTimeline.to(
+      "#js-exercise-5",
+      {
+        y: -100,
+        duration: 2,
+      },
+      "+=1",
+    );
     /* -----------------------
     Exercice 6 (timeline)
    -----------------------
