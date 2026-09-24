@@ -73,12 +73,12 @@ const animations = () => {
     PUIS déplacer l'item 5 de 100px vers le haut
     durant 2 secondes après un délai de 1 seconde
    ----------------------- */
-    const myTimeline = gsap.timeline();
-    myTimeline.to("#js-exercise-5", {
+    const myTimeline1 = gsap.timeline();
+    myTimeline1.to("#js-exercise-5", {
       x: -100,
       duration: 3,
     });
-    myTimeline.to(
+    myTimeline1.to(
       "#js-exercise-5",
       {
         rotation: 45,
@@ -86,7 +86,7 @@ const animations = () => {
       },
       "+=1",
     );
-    myTimeline.to(
+    myTimeline1.to(
       "#js-exercise-5",
       {
         y: -100,
@@ -102,6 +102,20 @@ const animations = () => {
     ET SIMULTANEMENT changer l'item 6 d'échelle (0.75)
     durant 5 secondes
    ----------------------- */
+    const myTimeline2 = gsap.timeline();
+
+    myTimeline2.to("#js-exercise-6", {
+      y: 100,
+      duration: 3,
+    });
+    myTimeline2.to(
+      "#js-exercise-6",
+      {
+        scale: 0.75,
+        duration: 5,
+      },
+      "<0",
+    );
     /* -----------------------
     Exercice 7 (repeat + yoyo)
    -----------------------
@@ -110,6 +124,14 @@ const animations = () => {
     avec un easing elastic.out
     et répéter ce mouvement à l'infini
    ----------------------- */
+    gsap.to("#js-exercise-7", {
+      rotation: 135,
+      duration: 2,
+      ease: "elastic.out(1, 0.3)",
+      repeat: -1,
+      yoyo: true,
+    });
+
     /* -----------------------
     Exercice 8
    -----------------------
