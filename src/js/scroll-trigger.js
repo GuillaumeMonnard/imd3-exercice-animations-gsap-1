@@ -1,3 +1,7 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 const scrollTriggerFunc = () => {
   if (document.querySelector("#exercice-scroll-trigger")) {
     /* ----------------------------------------------
@@ -6,10 +10,12 @@ const scrollTriggerFunc = () => {
    ----------------------------------------------
     Importer GSAP et ScrollTrigger en haut du fichier.
     Attention: n'oubliez pas d'enregistrer (register) ScrollTrigger à GSAP.
+  
     
     Utiliser les 'markers' pour visualiser les points
     de contact.
    ---------------------------------------------- */
+
     /* -----------------------
     Exercice 1
    -----------------------
@@ -22,6 +28,33 @@ const scrollTriggerFunc = () => {
     [3] est en haut de l'écran (son bord haut atteint
     le bord haut du viewport)
    ----------------------- */
+    gsap.to(".box-1", {
+      opacity: 1,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box-1",
+        start: "bottom bottom",
+      },
+    });
+
+    gsap.to(".box-2", {
+      opacity: 1,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box-2",
+        start: "center center",
+      },
+    });
+
+    gsap.to(".box-3", {
+      opacity: 1,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box-3",
+        start: "top top",
+      },
+    });
+
     /* -----------------------
     Exercice 2
    -----------------------
@@ -30,6 +63,15 @@ const scrollTriggerFunc = () => {
     [4] atteint 60% de l'écran (son bord haut
     atteint 60% du viewport)
    ----------------------- */
+    gsap.to(".box-4", {
+      opacity: 1,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box-4",
+        start: "top 60%",
+      },
+    });
+
     /* -----------------------
     Exercice 3
    -----------------------
@@ -41,6 +83,23 @@ const scrollTriggerFunc = () => {
     Note: un effet parallax signifie que les boîtes se déplacent
     à des vitesses différentes
    ----------------------- */
+    gsap.to(".box-5", {
+      y: -250,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box-5",
+        start: "top bottom",
+      },
+    });
+
+    gsap.to(".box-6", {
+      y: -250,
+      duration: 4,
+      scrollTrigger: {
+        trigger: ".box-6",
+        start: "top bottom",
+      },
+    });
     /* -----------------------
     Exercice 4
    -----------------------
@@ -52,6 +111,16 @@ const scrollTriggerFunc = () => {
     puis, conclure l'animation lorsque :
     300px ont été scrollés depuis le début de l'animation
    ----------------------- */
+    gsap.to(".box-7", {
+      rotation: 360,
+      scrollTrigger: {
+        trigger: ".box-7",
+        start: "top 40%",
+        end: "+=300",
+        scrub: true,
+      },
+    });
+
     /* -----------------------
     🔥 Exercice 5 🔥
    -----------------------
@@ -67,6 +136,44 @@ const scrollTriggerFunc = () => {
     [8] et [9] sont en haut de l'écran (leur bord haut
     atteint le bord haut du viewport)
    ----------------------- */
+
+    const timeline89 = gsap.timeline();
+    timeline89.to(".box-8", {
+      x: -100,
+      scrollTrigger: {
+        trigger: ".box-8",
+        start: "bottom bottom",
+        end: "top top",
+        scrub: true,
+      },
+    });
+    timeline89.to(".box-9", {
+      x: 100,
+      scrollTrigger: {
+        trigger: ".box-9",
+        start: "bottom bottom",
+        end: "top top",
+        scrub: true,
+      },
+    });
+
+    gsap.to(".box-8", {
+      opacity: 1,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box-8",
+        start: "bottom bottom",
+      },
+    });
+
+    gsap.to(".box-9", {
+      opacity: 1,
+      duration: 2,
+      scrollTrigger: {
+        trigger: ".box-9",
+        start: "bottom bottom",
+      },
+    });
     /* -----------------------
     Exercice 6
    -----------------------
@@ -75,6 +182,7 @@ const scrollTriggerFunc = () => {
     [10] est au milieu de l'écran (son milieu atteint
     le milieu du viewport)
    ----------------------- */
+
     /* -----------------------
     🔥🔥 Exercice 7 🔥🔥
    -----------------------
