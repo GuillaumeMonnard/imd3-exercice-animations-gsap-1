@@ -182,7 +182,13 @@ const scrollTriggerFunc = () => {
     [10] est au milieu de l'écran (son milieu atteint
     le milieu du viewport)
    ----------------------- */
-
+    gsap.to(".box-10", {
+      scrollTrigger: {
+        trigger: ".box-10",
+        start: "center center",
+        toggleClass: "highlight",
+      },
+    });
     /* -----------------------
     🔥🔥 Exercice 7 🔥🔥
    -----------------------
@@ -198,6 +204,13 @@ const scrollTriggerFunc = () => {
     Cet exercice n'a pas besoin d'animation to/from/fromTo, et peut
     utiliser la version standalone de ScrollTrigger
    ----------------------- */
+    ScrollTrigger.create({
+      trigger: "#js-exercise-7",
+      start: "center center",
+      pin: ".box-11",
+      end: "bottom-=20% center",
+      markers: true,
+    });
   }
 };
 
